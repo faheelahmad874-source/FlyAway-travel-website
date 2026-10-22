@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+
+        *{
+            margin: 0 ;
+        }
+        .contact-body {
+            background-color: #f3f6fb;
+            color: #17243b;
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 25px;
+            background-color: #ffffff;
+            flex-wrap: wrap;
+
+        }
+      
+
+        .contact-logo {
+            color: #17243b;
+            font-size: 27px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-home {
+            color: #0077ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-layout {
+            max-width: 1150px;
+            margin: 60px auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-tag {
+            color: #0077ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .contact-info h1 span {
+            color: #0077ff;
+        }
+
+        .contact-description {
+            color: #647087;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .contact-detail>span {
+            font-size: 25px;
+            color: #0077ff;
+            background-color: #e4efff;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .contact-detail h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .contact-detail p {
+            color: #647087;
+            line-height: 1.5;
+        }
+
+        .contact-form-card {
+            padding: 35px;
+            background-color: #ffffff;
+            border: 1px solid #e5eaf2;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(23, 36, 59, 0.08);
+        }
+
+        .contact-form-card h2 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .contact-form-card>p {
+            color: #647087;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .contact-form-card form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-form-card label {
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .contact-form-card input,
+        .contact-form-card textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #dce2ec;
+            border-radius: 8px;
+            font: inherit;
+            outline: none;
+        }
+
+        .contact-form-card input:focus,
+        .contact-form-card textarea:focus {
+            border-color: #0077ff;
+        }
+
+        .contact-form-card textarea {
+            resize: vertical;
+        }
+
+        .contact-form-card button {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #0077ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-card button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+
+        .contact-body {
+            width: 100%;
+            min-width: 0;
+            overflow-x: hidden;
+        }
+
+        
+
+        .contact-layout {
+            width: min(1100px, 90%);
+            margin: 45px auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            align-items: start;
+            gap: 35px;
+        }
+
+        .contact-info,
+        .contact-form-card {
+            min-width: 0;
+            width: 100%;
+        }
+
+        .contact-form-card {
+            padding: 32px;
+            box-sizing: border-box;
+        }
+
+        .contact-form-card form {
+            width: 100%;
+        }
+
+        .contact-form-card input,
+        .contact-form-card select,
+        .contact-form-card textarea,
+        .contact-form-card button {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contact-form-card input,
+        .contact-form-card select,
+        .contact-form-card textarea {
+            width: 100%;
+        }
+
+        .contact-form-card textarea {
+            resize: vertical;
+        }
+
+        
+        @media (max-width: 800px) {
+            .contact-header {
+                padding: 16px 5%;
+            }
+
+            .contact-layout {
+                width: 90%;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 25px;
+                margin: 30px auto;
+            }
+
+            .contact-info {
+                text-align: left;
+            }
+
+            .contact-form-card {
+                padding: 26px;
+            }
+        }
+
+        
+        @media (max-width: 500px) {
+            .contact-header {
+                padding: 14px 16px;
+                gap: 12px;
+            }
+
+            .contact-logo {
+                font-size: 24px;
+            }
+
+            .contact-home {
+                font-size: 14px;
+            }
+
+            .contact-layout {
+                width: calc(100% - 32px);
+                margin: 24px auto;
+                gap: 22px;
+            }
+
+            .contact-info h1 {
+                font-size: 30px;
+                line-height: 1.2;
+                overflow-wrap: anywhere;
+            }
+
+            .contact-description,
+            .contact-detail {
+                font-size: 15px;
+                line-height: 1.7;
+                overflow-wrap: anywhere;
+            }
+
+            .contact-form-card {
+                padding: 20px 16px;
+                border-radius: 12px;
+            }
+
+            .contact-form-card h2 {
+                font-size: 23px;
+            }
+
+            .contact-form-card input,
+            .contact-form-card select,
+            .contact-form-card textarea {
+                width: 100%;
+                min-width: 0;
+                font-size: 16px;
+            }
+
+            .contact-form-card button {
+                width: 100%;
+                padding: 13px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body class="contact-body">
+
+    <header class="contact-header">
+        <a href="index.html" class="contact-logo">FlyAway</a>
+        <a href="index.html" class="contact-home">← Back to Home</a>
+    </header>
+
+    <main class="contact-layout">
+
+        <div class="contact-info">
+            <p class="contact-tag">LET'S TALK TRAVEL</p>
+
+            <h1>Let's plan your next <span>adventure.</span></h1>
+
+            <p class="contact-description">
+                Have a question about a destination, hotel or tour package?
+                Our team would love to help you plan your next journey.
+            </p>
+
+            <div class="contact-detail">
+                <span>✉</span>
+                <div>
+                    <h3>Email us</h3>
+                    <p>hello@FlyAway.com</p>
+                </div>
+            </div>
+
+            <div class="contact-detail">
+                <span>✈</span>
+                <div>
+                    <h3>Travel with confidence</h3>
+                    <p>We're here to help with your travel questions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-card">
+
+            <h2>Send us a message</h2>
+            <p>Fill in the details below and we'll be in touch.</p>
+
+            <form id="contactForm">
+
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Your name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="How can we help?" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" rows="4" placeholder="Tell us what you need..." required></textarea>
+
+                <button type="submit">Send Message →</button>
+
+            </form>
+        </div>
+
+    </main>
+
+
+    <script>
+
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            alert("Thank you! Your message has been submitted successfully");
+
+            this.reset();
+
+
+        });
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

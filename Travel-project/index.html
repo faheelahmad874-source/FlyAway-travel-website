@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+
+
+
+    <nav class="navbar">
+        <a class="logo" href="index.html">FlyAway</a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+            aria-expanded="false">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#hotels">Hotels</a></li>
+            <li><a href="#flights">Flights</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="my-bookings.html">My Bookings</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" onclick="openAdmin()">Admin</a></li>
+        </ul>
+
+        <div class="auth-buttons" id="authLinks">
+            <a href="login.html" class="login">Login</a>
+            <a href="register.html" class="register">Register</a>
+        </div>
+
+        <div class="auth-buttons" id="userMenu" style="display:none;">
+            <span id="welcomeUser"></span>
+            <button type="button" id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+
+
+
+    <section class="main">
+
+        <div class="main-content">
+
+            <h1>Explore The World</h1>
+            <p>Discover amazing destinations and unforgettable experiences.</p>
+
+            <a href="#destinations" class="explore-btn">Explore Now</a>
+
+
+            <div class="search-box">
+                <input type="text" placeholder="Where do you want to go?" id="mainDestinationSearch">
+                <button type="button" id="mainSearchButton">Search</button>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <section class="destinations" id="destinations">
+
+        <div class="destination-search">
+
+
+            <input type="text" id="destinationSearch" placeholder="Search Paris, Dubai ...">
+
+            <select id="regionFilter">
+                <option value="all">All Regions</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="middle-east">Middle East</option>
+            </select>
+
+            <button type="button" id="searchDestinationBtn">Search</button>
+
+
+        </div>
+
+
+
+
+        <h2>Popular Destinations</h2>
+        <div class="destination-cards">
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Paris">
+                <h3>Paris</h3>
+                <p>Experience the city of lights.</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Dubai">
+                <h3>Dubai</h3>
+                <p>Explore luxury, adventure and culture.</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Tokyo">
+                <h3>Tokyo</h3>
+                <p>Discover tradition and modern innovation.</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1570191913384-7b4ff11716e7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Seoul">
+                <h3>Seoul</h3>
+                <p>Experience vibrant culture, food and technology.</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1996&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Rome">
+                <h3>Rome</h3>
+                <p>Explore ancient history and Italian culture.</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1454793147212-9e7e57e89a4f?q=80&w=664&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="London">
+                <h3>London</h3>
+                <p>Discover iconic landmarks and British culture.</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1590309284223-3946577eb10e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Switzerland">
+                <h3>Switzerland</h3>
+                <p>Experience breathtaking mountains and lakes.</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1785567068588-6317e261091b?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Bangkok">
+                <h3>Bangkok</h3>
+                <p>Explore vibrant streets, temples and cuisine.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="packages" id="packages">
+        <h2>Popular Tour Packages</h2>
+
+        <div class="package-cards" id="packageCards">
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBhcmlzfGVufDB8fDB8fHwy"
+                    alt="Paris">
+                <h3>Paris Getaway</h3>
+                <p>5 Days / 4 Nights</p>
+                <p>Explore the Eiffel Tower, Louvre and more.</p>
+                <strong>₹ 45,000</strong>
+                <a href="package-details.html?package=paris">Book Now</a>
+            </div>
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDI%3D"
+                    alt="Dubai">
+                <h3>Dubai Adventure</h3>
+                <p>6 Days / 5 Nights</p>
+                <p>Experience luxury, desert safaris and iconic landmarks.</p>
+                <strong>₹ 55,000</strong>
+                <a href="package-details.html?package=dubai">Book Now</a>
+            </div>
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRva3lvfGVufDB8fDB8fHwy"
+                    alt="Tokyo">
+                <h3>Tokyo Explorer</h3>
+                <p>7 Days / 6 Nights</p>
+                <p>Discover Tokyo's culture, technology and cuisine.</p>
+                <strong>₹ 75,000</strong>
+                <a href="package-details.html?package=tokyo">Book Now</a>
+            </div>
+
+
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Maldives">
+                <h3>Maldives Paradise</h3>
+                <p>5 Days / 4 Nights</p>
+                <p>Relax on tropical beaches and enjoy crystal-clear waters.</p>
+                <strong>₹ 60,000</strong>
+                <a href="package-details.html?package=maldives">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="hotels" id="hotels">
+
+        <h2>Featured Hotels</h2>
+
+        <div class="hotel-cards">
+
+
+
+            <div class="hotel-card">
+
+                <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Burj Al Arab">
+                <h3>Burj Al Arab</h3>
+                <p>Dubai, UAE</p>
+                <p class="ratings">★★★★★</p>
+                <strong>₹25,000 / night</strong>
+                <a href="hotel-booking.html?hotel=Burj%20Al%20Arab">Book Now</a>
+
+            </div>
+
+
+            <div class="hotel-card">
+
+                <img src="https://gos3.ibcdn.com/eb65e940-5f99-4e6c-88f1-56dcb82a9e26.jpg" alt="Taj Lake Palace">
+                <h3>Taj Lake Palace</h3>
+                <p>Udaipur, India</p>
+                <p class="ratings">★★★★★</p>
+                <strong>₹25,000 / night</strong>
+                <a href="hotel-booking.html?hotel=Taj%20Lake%20Palace">Book Now</a>
+            </div>
+            <div class="hotel-card">
+
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoBrvaUJVqg5uLYIvurRsdx8l4WqCqp4ENxI6XdjJ3Sw&s=10"
+                    alt="Rosewood London">
+                <h3>Rosewood London</h3>
+                <p>London, UK</p>
+                <p class="ratings">★★★★★</p>
+                <strong>₹30,000 / night</strong>
+                <a href="hotel-booking.html?hotel=Rosewood%20London">Book Now</a>
+
+
+
+            </div>
+            <div class="hotel-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH-0zmxvgNYByH5qHdSxgpSWLxta7r1mY7bNObqTiwDw&s=10"
+                    alt="Shangri-La Hotel">
+                <h3>Shangri-La Hotel</h3>
+                <p>Paris, France</p>
+                <p class="ratings">★★★★★</p>
+                <strong>₹30,000 / night</strong>
+                <a href="hotel-booking.html?hotel=Shangri-La%20Hotel">Book Now</a>
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+
+
+    <section class="flights" id="flights">
+
+        <h2>Popular Flights</h2>
+
+        <div class="flight-cards">
+
+
+            <div class="flight-card">
+
+                <h3>Delhi ➔ Dubai</h3>
+                <p>Indigo</p>
+                <p>6E 1453</p>
+                <p>Departure: 10:30 AM</p>
+                <p>Duration: 3h 45m</p>
+                <strong>₹12,500 </strong>
+                <a href="flight-booking.html?from=Delhi&to=Dubai">Book Flight</a>
+
+            </div>
+
+            <div class="flight-card">
+
+                <h3>Mumbai ➔ Tokyo</h3>
+                <p>Japan Airlines</p>
+                <p>JL 30</p>
+                <p>Departure: 6:30 PM</p>
+                <p>Duration: 8h 15m</p>
+                <strong>₹38,000 </strong>
+                <a href="flight-booking.html?from=Mumbai&to=Tokyo">Book Flight</a>
+
+            </div>
+
+            <div class="flight-card">
+
+                <h3>Mumbai ➔ London</h3>
+                <p>Air India</p>
+                <p>AI 131</p>
+                <p>Departure: 2:00 PM</p>
+                <p>Duration: 9h 30m</p>
+                <strong>₹42,000 </strong>
+                <a href="flight-booking.html?from=Mumbai&to=London">Book Flight</a>
+
+            </div>
+
+            <div class="flight-card">
+
+                <h3>Delhi ➔ Paris</h3>
+                <p>Air France</p>
+                <p>AF 225</p>
+                <p>Departure: 11:00 PM</p>
+                <p>Duration: 9h 10m</p>
+                <strong>₹40,000 </strong>
+                <a href="flight-booking.html?from=Delhi&to=Paris">Book Flight</a>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </section>
+
+
+
+    <section class="itinerary">
+
+        <h2>Plan Your Travel Itinerary</h2>
+
+        <div class="itinerary-container">
+
+
+            <form id="itineraryForm">
+                <label>Destination</label>
+                <input type="text" id="destination" placeholder="Where do you want to go?" required>
+
+                <label>Start Date</label>
+                <input type="date" id="startDate" required>
+
+                <label>End Date</label>
+                <input type="date" id="endDate" required>
+
+                <label>Number of Travellers</label>
+                <input type="number" id="travellers" min="1" placeholder="Enter number of travellers" required>
+
+                <button type="submit">Create Itinerary</button>
+            </form>
+
+            <div id="itineraryResult"></div>
+
+        </div>
+
+
+    </section>
+
+    <section class="gallery" id="gallery">
+
+
+
+        <h3>Explore our Gallery</h3>
+
+        <div class="gallery-container">
+
+
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Paris">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c" alt="Dubai">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf" alt="Tokyo">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7" alt="Northern Lights">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Mountain Landscape">
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b" alt="Ocean">
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <section class="reviews">
+        <h3>What Our Travellers Say</h3>
+        <div class="review-container">
+
+            <div class="review-card">
+                <h3>Rahul Sharma</h3>
+                <p class="review-stars">★★★★★</p>
+                <p>FlyAway made our Paris trip unforgettable. Everything was well organized!</p>
+                <span>Paris, France</span>
+            </div>
+
+            <div class="review-card">
+                <h3>Ayesha Khan</h3>
+                <p class="review-stars">★★★★★</p>
+                <p>The hotel booking was easy, and our Dubai vacation was amazing.</p>
+                <span>Dubai, UAE</span>
+            </div>
+
+            <div class="review-card">
+                <h3>Arjun Mehta</h3>
+                <p class="review-stars">★★★★☆</p>
+                <p>Beautiful destinations and a memorable experience with my family.</p>
+                <span>Tokyo, Japan</span>
+            </div>
+
+            <div class="review-card">
+                <h3>Sarah Wilson</h3>
+                <p class="review-stars">★★★★★</p>
+                <p>A wonderful travel experience. I would definitely use this website again!</p>
+                <span>London, UK</span>
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-about">
+                <h2>FlyAway<span>.</span></h2>
+                <p>
+                    Discover amazing destinations, explore exciting
+                    tour packages, and make your next journey
+                    unforgettable with FlyAway.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#packages">Packages</a>
+                <a href="#hotels">Hotels</a>
+                <a href="#flights">Flights</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Explore More</h3>
+                <a href="package-details.html">Tour Packages</a>
+                <a href="my-bookings.html">My Bookings</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Get in Touch</h3>
+                <p>Have questions about your next trip?</p>
+                <a href="contact.html" class="footer-contact-btn">
+                    Contact Us
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 FlyAway. All rights reserved.</p>
+            <p>Made with care for travellers everywhere.</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.textContent = "☰";
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Open navigation menu");
+            });
+        });
+
+
+
+        function openAdmin() {
+            const password = prompt("Enter Admin Password: ");
+            if (password === "3skill123") {
+                window.location.href = "admin.html";
+            } else if (password !== null) {
+                alert("incorrect password!");
+            }
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("destinationSearch");
+            const searchButton = document.getElementById("searchDestinationBtn");
+            const regionFilter = document.getElementById("regionFilter");
+            const destinationCards = document.querySelectorAll(".destination-card");
+
+            function searchDestinations() {
+                const query = searchInput.value.trim().toLowerCase();
+                const selectedRegion = regionFilter.value;
+                let matches = 0;
+
+                destinationCards.forEach(function (card) {
+                    const name = card.querySelector("h3").textContent.trim();
+                    const description = card.querySelector("p").textContent.trim();
+                    const searchableText = (name + " " + description).toLowerCase();
+
+                    let region = "";
+
+                    switch (name.toLowerCase()) {
+                        case "paris":
+                        case "rome":
+                        case "london":
+                        case "switzerland":
+                            region = "europe";
+                            break;
+
+                        case "dubai":
+                            region = "middle-east";
+                            break;
+
+                        case "tokyo":
+                        case "seoul":
+                        case "bangkok":
+                            region = "asia";
+                            break;
+                    }
+
+                    const matchesText = searchableText.includes(query);
+                    const matchesRegion =
+                        selectedRegion === "all" || region === selectedRegion;
+
+                    const isVisible = matchesText && matchesRegion;
+
+                    card.style.display = isVisible ? "" : "none";
+
+                    if (isVisible) {
+                        matches++;
+                    }
+                });
+
+                let message = document.getElementById("searchMessage");
+
+                if (!message) {
+                    message = document.createElement("p");
+                    message.id = "searchMessage";
+                    message.style.textAlign = "center";
+                    message.style.margin = "10px 0 20px";
+                    document.querySelector(".destination-cards").before(message);
+                }
+
+                if (!query && selectedRegion === "all") {
+                    message.textContent = "";
+                } else if (matches === 0) {
+                    message.textContent = "No destinations found. Try another search or region.";
+                } else {
+                    message.textContent = matches + " destination(s) found.";
+                }
+            }
+
+            searchButton.addEventListener("click", searchDestinations);
+
+            searchInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    searchDestinations();
+                }
+            });
+
+            regionFilter.addEventListener("change", searchDestinations);
+
+            searchInput.addEventListener("input", function () {
+                if (searchInput.value.trim() === "") {
+                    searchDestinations();
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const mainInput = document.getElementById("mainDestinationSearch");
+            const mainButton = document.getElementById("mainSearchButton");
+            const destinationSection = document.getElementById("destinations");
+            const destinationSearch = document.getElementById("destinationSearch");
+
+            function searchFromMain() {
+                const query = mainInput.value.trim();
+
+                destinationSearch.value = query;
+
+
+                document.getElementById("searchDestinationBtn").click();
+            }
+
+            mainButton.addEventListener("click", searchFromMain);
+
+            mainInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    searchFromHero();
+                }
+            });
+        });
+
+
+        const authLinks = document.getElementById("authLinks");
+        const userMenu = document.getElementById("userMenu");
+        const welcomeUser = document.getElementById("welcomeUser");
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        function updateNavbar() {
+            const loggedInUser = JSON.parse(
+                localStorage.getItem("FlyAwayLoggedInUser")
+            );
+
+            if (loggedInUser) {
+                authLinks.style.display = "none";
+                userMenu.style.display = "flex";
+                welcomeUser.textContent = "Welcome, " + loggedInUser.name;
+            } else {
+                authLinks.style.display = "flex";
+                userMenu.style.display = "none";
+            }
+        }
+
+        logoutBtn.addEventListener("click", function () {
+            localStorage.removeItem("FlyAwayLoggedInUser");
+            updateNavbar();
+            alert("You have been logged out.");
+        });
+
+        updateNavbar();
+
+
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById("packageCards");
+            if (!container) return;
+
+            const defaultPackages = [
+                {
+                    key: "paris",
+                    name: "Paris Getaway",
+                    destination: "Paris",
+                    duration: "5 Days / 4 Nights",
+                    description: "Explore the Eiffel Tower, Louvre and more.",
+                    price: 45000,
+                    image: "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?w=600"
+                },
+                {
+                    key: "dubai",
+                    name: "Dubai Adventure",
+                    destination: "Dubai",
+                    duration: "6 Days / 5 Nights",
+                    description: "Experience dunes, desert safaris and iconic landmarks.",
+                    price: 55000,
+                    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600"
+                },
+                {
+                    key: "tokyo",
+                    name: "Tokyo Explorer",
+                    destination: "Tokyo",
+                    duration: "7 Days / 6 Nights",
+                    description: "Discover Tokyo's culture, technology and cuisine.",
+                    price: 75000,
+                    image: "https://images.unsplash.com/photo-1480796927426-f609979314bd?w=600"
+                },
+                {
+                    key: "maldives",
+                    name: "Maldives Paradise",
+                    destination: "Maldives",
+                    duration: "4 Days / 3 Nights",
+                    description: "Relax on beautiful islands and explore crystal-clear waters.",
+                    price: 40000,
+                    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600"
+                }
+            ];
+
+            let packages;
+
+            try {
+                const saved = localStorage.getItem("FlyAwayPackages");
+
+
+                packages = saved === null
+                    ? defaultPackages
+                    : JSON.parse(saved);
+
+                if (!Array.isArray(packages)) packages = defaultPackages;
+            } catch (error) {
+                packages = defaultPackages;
+            }
+
+            container.replaceChildren();
+
+            packages.forEach(function (pkg) {
+                const card = document.createElement("div");
+                card.className = "package-card";
+
+                const image = document.createElement("img");
+                image.src = pkg.image || defaultPackages.find(
+                    item => item.key === pkg.key
+                )?.image || defaultPackages[0].image;
+                image.alt = pkg.destination || pkg.name;
+                image.loading = "lazy";
+
+                const heading = document.createElement("h3");
+                heading.textContent = pkg.name;
+
+                const duration = document.createElement("p");
+                duration.textContent = pkg.duration || "";
+
+                const description = document.createElement("p");
+                description.textContent = pkg.description || "";
+
+                const price = document.createElement("strong");
+                price.textContent = "₹ " + Number(pkg.price || 0).toLocaleString("en-IN");
+
+                const link = document.createElement("a");
+                link.href = "package-details.html?package=" +
+                    encodeURIComponent(pkg.key);
+                link.textContent = "Book Now";
+
+                card.append(image, heading, duration, description, price, link);
+                container.appendChild(card);
+            });
+        });
+
+
+
+
+        document.getElementById("itineraryForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const destination = document.getElementById("destination").value;
+            const start = document.getElementById("startDate").value;
+            const end = document.getElementById("endDate").value;
+            const travellers = document.getElementById("travellers").value;
+
+            if (end < start) {
+                alert("End date cannot be before start date.");
+                return;
+            }
+
+            const result = document.getElementById("itineraryResult");
+
+            result.innerHTML = `
+        <h3>Your Travel Itinerary</h3>
+        <p><strong>Destination:</strong> ${destination}</p>
+        <p><strong>Start Date:</strong> ${start}</p>
+        <p><strong>End Date:</strong> ${end}</p>
+        <p><strong>Travellers:</strong> ${travellers}</p>
+    `;
+        });
+    </script>
+</body>
+
+</html>

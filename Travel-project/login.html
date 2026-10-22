@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body.contact-body {
+            margin: 0;
+            min-height: 100vh;
+            background: #f3f6fb;
+            color: #17243b;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 7%;
+            background: #ffffff;
+            border-bottom: 1px solid #e8edf5;
+        }
+
+        .contact-logo {
+            color: #17243b;
+            font-size: 27px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .contact-home {
+            color: #0077ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .contact-home:hover {
+            color: #0056b3;
+        }
+
+        .contact-layout {
+            width: min(1100px, 86%);
+            margin: 55px auto;
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .contact-info {
+            padding: 20px 0;
+        }
+
+        .contact-tag {
+            color: #0077ff;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info h1 {
+            max-width: 500px;
+            font-size: clamp(36px, 4vw, 50px);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin: 0 0 22px;
+        }
+
+        .contact-info h1 span {
+            color: #0077ff;
+        }
+
+        .contact-description {
+            max-width: 470px;
+            color: #647087;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            margin-top: 24px;
+        }
+
+        .contact-detail>span {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: #e4efff;
+            font-size: 24px;
+        }
+
+        .contact-detail h3 {
+            font-size: 16px;
+            margin: 0 0 6px;
+        }
+
+        .contact-detail p {
+            color: #647087;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .contact-form-card {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 36px;
+            background: #ffffff;
+            border: 1px solid #e6ebf3;
+            border-radius: 18px;
+            box-shadow: 0 18px 50px rgba(23, 36, 59, 0.09);
+        }
+
+        .contact-form-card h2 {
+            color: #17243b;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            margin: 0 0 10px;
+        }
+
+        .contact-form-card>p:not(.auth-switch) {
+            color: #788398;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 24px;
+        }
+
+
+        .contact-form-card form {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .contact-form-card label {
+            color: #27354b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .contact-form-card input,
+        .contact-form-card textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 15px;
+            background: #fbfcfe;
+            border: 1px solid #dce3ee;
+            border-radius: 9px;
+            color: #17243b;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .contact-form-card input {
+            min-height: 47px;
+        }
+
+        .contact-form-card input::placeholder,
+        .contact-form-card textarea::placeholder {
+            color: #a0a9b8;
+        }
+
+        .contact-form-card input:focus,
+        .contact-form-card textarea:focus {
+            background: #ffffff;
+            border-color: #0077ff;
+            box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.1);
+        }
+
+        .contact-form-card button {
+            width: 100%;
+            margin-top: 17px;
+            padding: 15px;
+            background: #0077ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(0, 119, 255, 0.18);
+            transition: background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .contact-form-card button:hover {
+            background: #005fd1;
+            transform: translateY(-1px);
+        }
+
+        .auth-switch {
+            margin: 23px 0 0;
+            text-align: center;
+            color: #788398;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .auth-switch a {
+            color: #0077ff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .auth-switch a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 850px) {
+            .contact-layout {
+                width: min(520px, 88%);
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin: 35px auto;
+            }
+
+            .contact-info h1 {
+                font-size: 38px;
+            }
+
+            .contact-info {
+                padding: 5px 0;
+            }
+
+            .contact-form-card {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-header {
+                padding: 20px 5%;
+            }
+
+            .contact-logo {
+                font-size: 23px;
+            }
+
+            .contact-home {
+                font-size: 13px;
+            }
+
+            .contact-layout {
+                width: 90%;
+                margin: 28px auto;
+            }
+
+            .contact-info h1 {
+                font-size: 34px;
+            }
+
+            .contact-form-card {
+                padding: 23px 19px;
+                border-radius: 14px;
+            }
+
+            .contact-form-card h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body class="contact-body">
+
+    <header class="contact-header">
+        <a href="index.html" class="contact-logo">FlyAway</a>
+        <a href="index.html" class="contact-home">← Back to Home</a>
+    </header>
+
+    <main class="contact-layout">
+
+        <div class="contact-info">
+            <p class="contact-tag">WELCOME BACK</p>
+
+            <h1>Your next adventure is <span>waiting.</span></h1>
+
+            <p class="contact-description">
+                Log in to FlyAway and continue exploring destinations,
+                discovering tour packages and planning your next trip.
+            </p>
+
+            <div class="contact-detail">
+                <span>✈️</span>
+                <div>
+                    <h3>Pick up where you left off</h3>
+                    <p>Get ready to plan your next getaway.</p>
+                </div>
+            </div>
+
+            <div class="contact-detail">
+                <span>🌍</span>
+                <div>
+                    <h3>The world is waiting</h3>
+                    <p>Your next unforgettable journey starts here.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-card">
+            <h2>Welcome back!</h2>
+            <p>Enter your details to continue.</p>
+
+            <form id="loginForm">
+
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" placeholder="you@example.com" required>
+
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+
+                <button type="submit">Log In →</button>
+
+            </form>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <a href="register.html">Create one</a>
+            </p>
+        </div>
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+
+            const password = document.getElementById("loginPassword").value;
+
+
+            const users = JSON.parse(localStorage.getItem("FlyAwayUsers")) || [];
+
+            const matchedUser = users.find(user =>
+                user.email === email && user.password === password
+            );
+
+            if(matchedUser){
+
+                alert("Welcome back, " + matchedUser.name + "! Login successful.");
+                localStorage.setItem("FlyAwayLoggedInUser",JSON.stringify({
+                    name: matchedUser.name,
+                    email: matchedUser.email
+                }));
+            
+
+
+                this.reset();
+                
+                window.location.href = "index.html";
+            }else{
+                alert("invalid email or password. Please try again.")
+            }
+
+
+
+        });
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

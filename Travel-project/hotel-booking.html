@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking </title>
+    <style>
+        body.contact-body {
+            background: #f4f6fa;
+            margin: 0;
+        }
+
+        .contact-header {
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #173b68;
+            border-bottom: 1px solid #e8eaf0;
+        }
+
+        .contact-header .contact-logo{
+            text-decoration: none;
+             color: #ffffff;
+            font-size: 27px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-header .logo {
+            font-size: 27px;
+            font-weight: 800;
+            color: #173b68;
+            text-decoration: none;
+        }
+
+        .contact-header .contact-home {
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 18px;
+            border: 1px solid #dce3ed;
+            border-radius: 8px;
+            transition: 0.25s ease;
+        }
+
+        .contact-header .contact-home:hover {
+            background: #3163a0;
+        }
+
+
+        .contact-layout {
+            width: min(1100px, 90%);
+            margin: 55px auto;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+
+        .contact-info {
+            padding: 30px 10px;
+        }
+
+        .contact-info h3 {
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.15;
+            color: #173b68;
+            margin-bottom: 18px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #667085;
+        }
+
+
+        .contact-form-card {
+            background: #ffffff;
+            padding: 36px;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(26, 48, 78, 0.09);
+            border: 1px solid #edf0f5;
+        }
+
+        .contact-form-card h2 {
+            color: #173b68;
+            font-size: 27px;
+            margin: 0 0 8px;
+        }
+
+        .contact-form-card>p {
+            color: #7b8494;
+            margin-bottom: 26px;
+            line-height: 1.6;
+        }
+
+
+        .contact-form-card label {
+            display: block;
+            color: #344054;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+
+        .contact-form-card input,
+        .contact-form-card select,
+        .contact-form-card textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px 14px;
+            margin-bottom: 19px;
+            border: 1px solid #d8deea;
+            border-radius: 9px;
+            background: #ffffff;
+            color: #253247;
+            font: inherit;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-form-card input:focus,
+        .contact-form-card select:focus,
+        .contact-form-card textarea:focus {
+            border-color: #3569a8;
+            box-shadow: 0 0 0 3px rgba(53, 105, 168, 0.12);
+        }
+
+
+        .contact-form-card button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background: #173b68;
+            color: #ffffff;
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.25s, transform 0.25s;
+        }
+
+        .contact-form-card button[type="submit"]:hover {
+            background: #24558d;
+            transform: translateY(-2px);
+        }
+
+
+        @media (max-width: 768px) {
+            .contact-header {
+                padding: 18px 5%;
+                gap: 12px;
+            }
+
+            .contact-header .logo {
+                font-size: 22px;
+            }
+
+            .contact-header .back-home {
+                padding: 9px 12px;
+                font-size: 13px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 25px auto;
+            }
+
+            .contact-info {
+                padding: 10px 0;
+            }
+
+            .contact-info h3 {
+                font-size: 32px;
+            }
+
+            .contact-form-card {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="contact-body">
+
+    <header class="contact-header">
+        <a href="index.html" class="contact-logo">FlyAway</a>
+        <a href="index.html" class="contact-home">← Back to Home</a>
+    </header>
+
+    <main class="contact-layout">
+
+        <div class="contact-info">
+            <p class="contact-tag">YOUR STAY, YOUR WAY</p>
+            <h1>Find your perfect <span>stay.</span></h1>
+
+            <p class="contact-description">
+                Plan a comfortable stay for your next adventure.
+                Enter your details below to submit a hotel booking request.
+            </p>
+
+            <div class="contact-detail">
+                <span>🏨</span>
+                <div>
+                    <h3 id="hotelName">Hotel Booking</h3>
+                    <p id="hotelLocation">Choose your accommodation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-card">
+            <h2>Booking details</h2>
+            <p>Complete the form to submit your request.</p>
+
+            <form id="hotelForm">
+
+                <label for="hotel">Select Hotel</label>
+                <select id="hotel" required>
+                    <option value="">Choose a hotel</option>
+                    <option value="Burj Al Arab" data-location="Dubai">Burj Al Arab — Dubai</option>
+                    <option value="Taj Lake Palace" data-location="Udaipur">Taj Lake Palace — Udaipur</option>
+                    <option value="Rosewood London" data-location="London">Rosewood London — London</option>
+                    <option value="Shangri-La Hotel" data-location="Paris">Shangri-La Hotel — Paris</option>
+                </select>
+
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter your name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="checkIn">Check-in Date</label>
+                <input type="date" id="checkIn" required>
+
+                <label for="checkOut">Check-out Date</label>
+                <input type="date" id="checkOut" required>
+
+                <label for="guests">Number of Guests</label>
+                <input type="number" id="guests" min="1" max="20" value="1" required>
+
+                <button type="submit">Submit Hotel Booking →</button>
+
+            </form>
+        </div>
+
+    </main>
+
+    <script>
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const selectedHotel = params.get("hotel");
+
+            const hotelSelect = document.getElementById("hotel");
+
+            if (selectedHotel && hotelSelect) {
+                const matchingOption = Array.from(hotelSelect.options)
+                    .find(option => option.value === selectedHotel);
+
+                if (matchingOption) {
+                    hotelSelect.value = selectedHotel;
+                    hotelSelect.dispatchEvent(new Event("change"));
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+        const hotelSelect = document.getElementById("hotel");
+        const checkIn = document.getElementById("checkIn");
+        const checkOut = document.getElementById("checkOut");
+
+        const today = new Date();
+        const todayString = [
+            today.getFullYear(),
+            String(today.getMonth() + 1).padStart(2, "0"),
+            String(today.getDate()).padStart(2, "0")
+        ].join("-");
+
+        checkIn.min = todayString;
+        checkOut.min = todayString;
+
+        checkIn.addEventListener("change", function () {
+            checkOut.min = checkIn.value || todayString;
+
+            if (checkOut.value && checkOut.value <= checkIn.value) {
+                checkOut.value = "";
+            }
+        });
+
+        hotelSelect.addEventListener("change", function () {
+            const option = this.options[this.selectedIndex];
+
+            document.getElementById("hotelName").textContent =
+                option.value || "Hotel Booking";
+
+            document.getElementById("hotelLocation").textContent =
+                option.dataset.location || "Choose your accommodation.";
+        });
+
+        document.getElementById("hotelForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (checkOut.value <= checkIn.value) {
+                alert("Check-out must be after check-in.");
+                return;
+            }
+
+            const option = hotelSelect.options[hotelSelect.selectedIndex];
+
+            const booking = {
+                id: "WH" + Date.now(),
+                type: "Hotel",
+                hotelName: hotelSelect.value,
+                destination: option.dataset.location,
+                fullName: document.getElementById("fullName").value.trim(),
+                email: document.getElementById("email").value.trim().toLowerCase(),
+                checkIn: checkIn.value,
+                checkOut: checkOut.value,
+                guests: Number(document.getElementById("guests").value),
+                status: "Pending"
+            };
+
+            const bookings = JSON.parse(
+                localStorage.getItem("FlyAwayBookings") || "[]"
+            );
+
+            bookings.push(booking);
+
+            localStorage.setItem(
+                "FlyAwayBookings",
+                JSON.stringify(bookings)
+            );
+
+            alert(
+                "Hotel booking request submitted!\nReference: " + booking.id
+            );
+
+            this.reset();
+
+            document.getElementById("hotelName").textContent = "Hotel Booking";
+            document.getElementById("hotelLocation").textContent =
+                "Choose your accommodation.";
+
+            checkIn.min = todayString;
+            checkOut.min = todayString;
+        });
+    </script>
+
+</body>
+
+</html>

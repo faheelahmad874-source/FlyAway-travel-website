@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Package Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-body .contact-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px 7%;
+            background: #262c35;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-body .contact-logo {
+            color: #ffffff;
+            font-size: 27px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .contact-body .contact-home {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .contact-body .contact-home:hover {
+            color: #4784c4;
+        }
+    </style>
+</head>
+
+<body class="contact-body">
+
+    <header class="contact-header">
+        <a href="index.html" class="contact-logo">FlyAway</a>
+        <a href="index.html" class="contact-home">← Back to Home</a>
+    </header>
+
+    <main class="package-details">
+
+        <div class="package-banner">
+            <p class="contact-tag">YOUR NEXT ADVENTURE</p>
+            <h1 id="packageName">Explore the world with FlyAway</h1>
+            <p id="packageDescription">
+                Discover unforgettable destinations with our specially selected tour packages.
+            </p>
+        </div>
+
+        <div class="package-info-card">
+            <div class="package-info-grid">
+                <div>
+                    <span>Duration</span>
+                    <h3 id="packageDuration">—</h3>
+                </div>
+
+                <div>
+                    <span>Package Price</span>
+                    <h3 id="packagePrice">—</h3>
+                </div>
+
+                <div>
+                    <span>Destination</span>
+                    <h3 id="packageDestination">—</h3>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2>About this package</h2>
+            <p id="packageAbout"></p>
+
+            <h2>Sample itinerary</h2>
+            <ul id="packageItinerary"></ul>
+
+            <button type="button" id="bookPackageBtn">
+                Book This Package →
+            </button>
+        </div>
+
+    </main>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const params = new URLSearchParams(window.location.search);
+            const packageKey = params.get("package");
+
+
+            const defaultPackages = {
+                paris: {
+                    key: "paris",
+                    name: "Paris Getaway",
+                    destination: "Paris, France",
+                    duration: "5 Days / 4 Nights",
+                    price: 45000,
+                    description: "Experience the romance, culture and charm of Paris.",
+                    about: "Explore iconic landmarks, charming streets, French cuisine and the unforgettable atmosphere of the City of Light.",
+                    itinerary: [
+                        "Day 1: Arrival and Eiffel Tower visit",
+                        "Day 2: Louvre Museum and city sightseeing",
+                        "Day 3: Seine River cruise and local shopping",
+                        "Day 4: Explore Montmartre and French cafés",
+                        "Day 5: Departure"
+                    ]
+                },
+
+                dubai: {
+                    key: "dubai",
+                    name: "Dubai Adventure",
+                    destination: "Dubai, UAE",
+                    duration: "4 Days / 3 Nights",
+                    price: 35000,
+                    description: "Discover futuristic landmarks and desert adventures.",
+                    about: "Experience Dubai's famous skyline, shopping destinations, desert scenery and exciting attractions.",
+                    itinerary: [
+                        "Day 1: Arrival and Dubai Marina",
+                        "Day 2: Burj Khalifa and Dubai Mall",
+                        "Day 3: Desert safari adventure",
+                        "Day 4: Shopping and departure"
+                    ]
+                },
+
+                tokyo: {
+                    key: "tokyo",
+                    name: "Tokyo Explorer",
+                    destination: "Tokyo, Japan",
+                    duration: "6 Days / 5 Nights",
+                    price: 60000,
+                    description: "Explore the perfect blend of Japanese tradition and modern life.",
+                    about: "Discover historic temples, bustling shopping streets, Japanese food and Tokyo's exciting city life.",
+                    itinerary: [
+                        "Day 1: Arrival and Shibuya",
+                        "Day 2: Asakusa and Senso-ji Temple",
+                        "Day 3: Shinjuku and city exploration",
+                        "Day 4: Museums and Japanese cuisine",
+                        "Day 5: Shopping and free exploration",
+                        "Day 6: Departure"
+                    ]
+                },
+
+                maldives: {
+                    key: "maldives",
+                    name: "Maldives Paradise",
+                    destination: "Maldives",
+                    duration: "5 Days / 4 Nights",
+                    price: 55000,
+                    description: "Relax among turquoise waters and beautiful tropical islands.",
+                    about: "Enjoy a relaxing island escape with beautiful beaches, marine life and opportunities for water activities.",
+                    itinerary: [
+                        "Day 1: Arrival and island transfer",
+                        "Day 2: Beach relaxation and swimming",
+                        "Day 3: Snorkelling and marine exploration",
+                        "Day 4: Island activities and sunset views",
+                        "Day 5: Departure"
+                    ]
+                }
+            };
+
+            let allPackages = { ...defaultPackages };
+
+
+            try {
+                const savedPackages = localStorage.getItem("FlyAwayPackages");
+
+                if (savedPackages !== null) {
+                    const parsedPackages = JSON.parse(savedPackages);
+
+                    if (Array.isArray(parsedPackages)) {
+
+                        allPackages = {};
+
+                        parsedPackages.forEach(function (pkg) {
+                            if (pkg.key) {
+                                allPackages[pkg.key] = pkg;
+                            }
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error("Could not load saved packages:", error);
+            }
+
+            const selectedPackage = allPackages[packageKey];
+
+            if (!selectedPackage) {
+                document.querySelector(".package-details").innerHTML = `
+            <h1>Package not found</h1>
+            <p>This package may have been removed or the link may be incorrect.</p>
+            <a href="index.html">Back to Home</a>
+        `;
+                return;
+            }
+
+
+            document.getElementById("packageName").textContent =
+                selectedPackage.name || "Tour Package";
+
+            document.getElementById("packageDescription").textContent =
+                selectedPackage.description || "";
+
+            document.getElementById("packageDuration").textContent =
+                selectedPackage.duration || "—";
+
+            const price = Number(selectedPackage.price);
+
+            document.getElementById("packagePrice").textContent =
+                Number.isFinite(price)
+                    ? "₹" + price.toLocaleString("en-IN")
+                    : "Price unavailable";
+
+            document.getElementById("packageDestination").textContent =
+                selectedPackage.destination || "—";
+
+            document.getElementById("packageAbout").textContent =
+                selectedPackage.about || selectedPackage.description || "";
+
+
+            const itinerary = document.getElementById("packageItinerary");
+            itinerary.replaceChildren();
+
+            const itineraryItems = Array.isArray(selectedPackage.itinerary)
+                ? selectedPackage.itinerary
+                : [];
+
+            if (itineraryItems.length === 0) {
+                const li = document.createElement("li");
+                li.textContent = "Itinerary will be announced soon.";
+                itinerary.appendChild(li);
+            } else {
+                itineraryItems.forEach(function (item) {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    itinerary.appendChild(li);
+                });
+            }
+
+
+            document.getElementById("bookPackageBtn").addEventListener(
+                "click",
+                function () {
+                    window.location.href =
+                        "tour-booking.html?package=" +
+                        encodeURIComponent(selectedPackage.key || packageKey);
+                }
+            );
+
+        });
+    </script>
+
+
+</body>
+
+</html>
